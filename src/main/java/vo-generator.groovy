@@ -39,10 +39,6 @@ CREATE TABLE `t_mkt_activity` (
 ) ENGINE=InnoDB AUTO_INCREMENT=262 DEFAULT CHARSET=utf8 COMMENT='营销活动信息';
 """
 
-static def camel(s) {
-
-}
-
 def bean = [:]
 bean.col = []
 
@@ -55,7 +51,7 @@ def nameMat = rows[0] =~ /`\S+`/
 
 def beanName = nameMat.find() ? nameMat.group().replace('`', "") : ""
 String camelBeanName = beanName.replaceAll("t_mkt", "").toLowerCase().split('_').collect { cc -> StringUtils.capitalize(cc as String) }.join('')
-bean.name = camelBeanName[0].toLowerCase() + camelBeanName[1..-1] + "VO"
+bean.name = camelBeanName[0].toUpperCase() + camelBeanName[1..-1] + "VO"
 
 rows = rows[1..rows.size() - 1]
 
@@ -72,8 +68,8 @@ rows.each {
         col.des = desMat.find() ? desMat.group().replace('`', "") : ""
 
         if (it.contains("varchar")) col.type = "String"
-        if (it.contains("bigint")) col.type = "Long"
         if (it.contains("tinyint") || it.contains("smallint") || it.contains("int")) col.type = "Integer"
+        if (it.contains("bigint")) col.type = "Long"
         if (it.contains("decimal") || it.contains("decimal")) col.type = "Double"
         if (it.contains("datetime")) col.type = "Date"
         bean.col << col
@@ -86,7 +82,7 @@ out << "class ${bean.name} {\n"
 bean.col.each {
     out << """\t/**
 \t  * ${it.des}
-\t **/""" << "\t" + "private" + " " + it.type + " " + it.colName + ";\n"
+\t **/""" << "\t" + "private" + " " + (it.type as String) + " " + (it.colName as String) + ";\n"
 }
 
 out << "}\n"
@@ -94,3 +90,5 @@ out << "}\n"
 out.each {
     println(it)
 }
+
+
