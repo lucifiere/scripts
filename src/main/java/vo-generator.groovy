@@ -6,25 +6,9 @@ import com.sun.xml.internal.ws.util.StringUtils
  */
 
 def ddl = """
-CREATE TABLE `t_rct_recruit` (
-  `id` bigint(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id主键',
-  `name` varchar(20) NOT NULL COMMENT '申请姓名',
-  `phone_no` varchar(11) NOT NULL COMMENT '手机号',
-  `city_id` tinyint(4) DEFAULT NULL COMMENT '应聘城市id',
-  `city_name` varchar(20) NOT NULL COMMENT '应聘城市名称',
-  `job_id` tinyint(4) DEFAULT NULL COMMENT '申请岗位id',
-  `job_name` varchar(20) NOT NULL COMMENT '申请岗位名称',
-  `create_emp` int(11) DEFAULT NULL COMMENT '创建人',
-  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `modify_emp` int(11) DEFAULT NULL COMMENT '修改人',
-  `modify_time` datetime DEFAULT NULL COMMENT '修改时间',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='应聘信息表';
-
-
 """
 
-def sys = "t_mkt"
+def sys = "t_rct"
 def bean = [:]
 bean.col = []
 
@@ -84,7 +68,7 @@ println("\nII. 生成SELECT列---------------->\n")
 def outSELECT = []
 
 bean.col.each {
-    outSELECT << it.col + " AS " + it.filed
+    outSELECT << it.col + " AS " + it.filed + ","
 }
 
 outSELECT.each {
