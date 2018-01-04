@@ -103,6 +103,18 @@ outWHERE.each {
     println(it)
 }
 
+println("\nV. 生成INSERT列---------------->\n")
+
+def outINSERT = []
+
+bean.col.each {
+    outINSERT << """\t${it.col}=#${it.filed}#"""
+}
+
+outINSERT.each {
+    println(it)
+}
+
 
 
 
