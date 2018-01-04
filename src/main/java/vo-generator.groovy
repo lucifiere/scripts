@@ -75,6 +75,34 @@ outSELECT.each {
     println(it)
 }
 
+println("\nIII. 生成UPDATE列---------------->\n")
+
+def outUPDATE = []
+
+outUPDATE << "<dynamic prepend=\"set\">\n"
+bean.col.each {
+    outUPDATE << """\t<isNotEmpty property="${it.filed}" prepend="," >"""
+    outUPDATE << """\t\t${it.col}=#${it.filed}#""" << "\t</isNotEmpty>\n"
+}
+outUPDATE << "</dynamic>"
+
+outUPDATE.each {
+    println(it)
+}
+
+println("\nIV. 生成WHERE列---------------->\n")
+
+def outWHERE = []
+
+bean.col.each {
+    outWHERE << """<isNotEmpty property="${it.filed}" prepend="and" >"""
+    outWHERE << """\t${it.col}=#${it.filed}#""" << "</isNotEmpty>\n"
+}
+
+outWHERE.each {
+    println(it)
+}
+
 
 
 
