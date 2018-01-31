@@ -84,12 +84,14 @@ final public class MapUtils {
      * @return 分组结果
      */
     @SuppressWarnings("unchecked")
-    public static <K, V> Map<K, V> groupListByKey(List<V> list, Class<K> filedClazz, String filed) {
+    public static <K, V> Map<K, V> groupListByFiled(List<V> list, Class<K> filedClazz, String filed) {
         try {
             Map<K, V> res = new HashMap<>();
             if (list != null && list.size() > 0) {
                 Field fField = list.get(0).getClass().getDeclaredField(filed);
-                if (!filedClazz.isAssignableFrom(fField.getType())) throw new RuntimeException("error key type!");
+                if (!filedClazz.isAssignableFrom(fField.getType())) {
+                    throw new RuntimeException("error key type!");
+                }
                 fField.setAccessible(true);
                 for (V k : list) {
                     Object key = fField.get(k);
