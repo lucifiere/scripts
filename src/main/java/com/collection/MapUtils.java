@@ -76,20 +76,20 @@ final public class MapUtils {
     /**
      * 根据字段给list分组
      *
-     * @param list  list
-     * @param clazz 字段的类型，用做运行时检查
-     * @param filed 字段
-     * @param <K>   K
-     * @param <V>   V
+     * @param list       list
+     * @param filedClazz 字段的类型，用做运行时检查
+     * @param filed      字段
+     * @param <K>        K PO分组依据的字段
+     * @param <V>        V PO的类型
      * @return 分组结果
      */
     @SuppressWarnings("unchecked")
-    public static <K, V> Map<K, V> groupListByKey(List<V> list, Class<K> clazz, String filed) {
+    public static <K, V> Map<K, V> groupListByKey(List<V> list, Class<K> filedClazz, String filed) {
         try {
             Map<K, V> res = new HashMap<>();
             if (list != null && list.size() > 0) {
                 Field fField = list.get(0).getClass().getDeclaredField(filed);
-                if (clazz != fField.getType()) throw new RuntimeException("error key type!");
+                if (filedClazz != fField.getType()) throw new RuntimeException("error key type!");
                 fField.setAccessible(true);
                 for (V k : list) {
                     Object key = fField.get(k);
