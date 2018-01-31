@@ -1,3 +1,5 @@
+package com.scripts
+
 import com.sun.xml.internal.ws.util.StringUtils
 
 /**
