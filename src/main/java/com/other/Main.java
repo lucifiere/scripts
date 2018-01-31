@@ -20,7 +20,8 @@ public class Main {
                 new Pojo(4L, "xxx4", 1, 0.8F));
         Map<Long, Pojo> map = MapUtils.groupListByKey(test, Long.class, "id");
         Map<Long, Pojo> map2 = MapUtils.groupListByKey(test, Long.class, "filed1");
-        System.out.print(map2.get("xxx2").getFiled1());
+        System.out.println(map2.get("xxx2").getFiled1());
+        System.out.println(map.get(1L).getFiled1());
     }
 
 }
