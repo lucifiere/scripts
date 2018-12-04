@@ -1,0 +1,45 @@
+{
+  "auditFlag": true,
+  "bizType": "TICKET",
+  "promoType": "REDUCE",
+  "activityName": "自有渠道立减两元",
+  "activityIntro": "自有渠道立减两元",
+  "activityTag": "自有渠道立减两元",
+  "activityDesc": "自有渠道立减两元",
+  "startTime": "2018-11-28",
+  "endTime": "2018-12-18",
+  "availablePeriods": null,
+  "cinemaLinkIds": [
+    "7777"
+  ],
+  "channelCodes": [
+    "YKSE_H5",
+    "YKSE_IOS_APP",
+    "YKSE_ANDROID_APP",
+    "YKSE_WEB"
+  ],
+  "channelType": "OWN",
+  "orientedUserType": "NO_LIMIT",
+  "scheduleDate": null,
+  "scheduleExcludeDates": null,
+  "scheduleAvailablePeriods": null,
+  "hallTypes": null,
+  "filmVersions": null,
+  "paymentMethods": null,
+  "promoConfigType": "UNIFORM",
+  "uniformPrice": "200",
+  "firstOrderPromotion": false,
+  "breakLowestType": "ALLOW",
+  "budget": {
+    "budgetType": "promo",
+    "userTotalCount": null,
+    "userTotalTime": null,
+    "userScheduleCount": null,
+    "userDailyCount": null
+  },
+  "issuePriceType": "USER_PAY",
+  "subsidyPartyType": "CINEMA",
+  "agentFeeFree": "N",
+  "promoCalType": "ORIGINAL_PRICE",
+  "scheduleSpecialSelectType": "NO_LIMIT"
+}
