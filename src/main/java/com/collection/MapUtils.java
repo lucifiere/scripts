@@ -12,6 +12,9 @@ import java.util.*;
  */
 final public class MapUtils {
 
+    private MapUtils() {
+    }
+
     /**
      * 创建String - Obj类型的Map
      *

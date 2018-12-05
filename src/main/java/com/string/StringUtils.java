@@ -7,9 +7,12 @@ import java.util.List;
 
 /**
  * Created by XD.Wang on 2018/1/31.
- * some string utils
+ * 常用字符串工具类
  */
-public class StringUtils {
+final public class StringUtils {
+
+    private StringUtils() {
+    }
 
     /**
      * 拼接入库ID
@@ -45,6 +48,21 @@ public class StringUtils {
     public static List<String> split(String source) {
         Splitter splitter = Splitter.on(",").omitEmptyStrings();
         return splitter.splitToList(source);
+    }
+
+    /**
+     * 将字符串的首字母大写
+     *
+     * @param str 字符串
+     * @return 首字母大写的字符串
+     */
+    static String capitalFirst(String str) {
+        if (org.apache.commons.lang3.StringUtils.isNotEmpty(str)) {
+            char[] cs = str.toCharArray();
+            cs[0] = (char) (((int) cs[0]) - 32);
+            return String.valueOf(cs);
+        }
+        return str;
     }
 
 }

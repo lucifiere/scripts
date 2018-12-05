@@ -12,7 +12,7 @@ import java.util.Date;
  *
  * @author XD.Wang
  */
-public class TimeUtils {
+final public class TimeUtils {
 
     public static Date endOfDay(Date date) {
         if (date == null) {

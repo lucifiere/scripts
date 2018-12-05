@@ -12,6 +12,9 @@ import java.util.stream.Stream;
  */
 final public class ListUtils {
 
+    private ListUtils() {
+    }
+
     /**
      * 移除空值
      *
@@ -45,12 +48,6 @@ final public class ListUtils {
             listArr.add(sub);
         }
         return listArr;
-    }
-
-    public static void main(String[] args) {
-        List<Integer> seq = Stream.iterate(1, item -> item + 1).limit(2311).collect(Collectors.toList());
-        List<List<Integer>> seqList = ListUtils.splitList(seq, 1000);
-        seqList.forEach(System.out::println);
     }
 
 }
