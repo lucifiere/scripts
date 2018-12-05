@@ -1,7 +1,10 @@
 package com.exceptions;
 
 /**
- * 携带额外信息的异常
+ * Created by XD.Wang on 2017/5/31.
+ * 业务异常（携带额外信息）
+ *
+ * @author XD.Wang
  */
 public class InformativeBizException extends BaseException {
 

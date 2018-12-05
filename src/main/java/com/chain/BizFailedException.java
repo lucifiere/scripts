@@ -1,7 +1,8 @@
 package com.chain;
 
 /**
- * 责任链业务异常
+ * Created by XD.Wang on 2018/4/23.
+ * 责任链执行异常
  *
  * @author XD.Wang
  */

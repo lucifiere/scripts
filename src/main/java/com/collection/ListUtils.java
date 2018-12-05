@@ -2,10 +2,9 @@ package com.collection;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
+ * Created by XD.Wang on 2017/3/21.
  * 列表工具类
  *
  * @author XD.Wang

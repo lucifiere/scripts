@@ -6,6 +6,7 @@ import java.lang.reflect.Field;
 import java.util.*;
 
 /**
+ * Created by XD.Wang on 2017/5/31.
  * 映射工具类
  *
  * @author XD.Wang

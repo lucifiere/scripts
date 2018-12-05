@@ -1,7 +1,10 @@
 package com.exceptions;
 
 /**
+ * Created by XD.Wang on 2017/5/31.
  * 系统异常
+ *
+ * @author XD.Wang
  */
 public class SystemException extends BaseException {
 

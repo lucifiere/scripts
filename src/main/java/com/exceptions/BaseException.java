@@ -1,6 +1,7 @@
 package com.exceptions;
 
 /**
+ * Created by XD.Wang on 2017/5/31.
  * 自定义异常基类
  *
  * @author XD.Wang
@@ -43,4 +44,5 @@ public abstract class BaseException extends RuntimeException {
     public void setCode(ErrorCode code) {
         this.code = code;
     }
+
 }

@@ -1,10 +1,12 @@
 package com.collection;
 
 /**
- * 三元组工具类
+ * Created by XD.Wang on 2017/7/11.
+ * 三元组
  *
- * @param <A>
- * @param <B>
+ * @param <A> 第一个元素
+ * @param <B> 第二个元素
+ * @param <C> 第三个元素
  * @author XD.Wang
  */
 public class Tuple3<A, B, C> {

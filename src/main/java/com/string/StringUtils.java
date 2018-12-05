@@ -8,6 +8,8 @@ import java.util.List;
 /**
  * Created by XD.Wang on 2018/1/31.
  * 常用字符串工具类
+ *
+ * @author XD.Wang
  */
 final public class StringUtils {
 

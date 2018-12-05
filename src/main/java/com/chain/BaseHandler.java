@@ -1,8 +1,8 @@
 package com.chain;
 
 /**
+ * Created by XD.Wang on 2018/4/23.
  * 责任链节点
- * Created on 2017-04-17
  *
  * @author XD.Wang
  */

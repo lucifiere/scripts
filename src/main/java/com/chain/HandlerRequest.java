@@ -1,7 +1,8 @@
 package com.chain;
 
 /**
- * 节点执行上下文
+ * Created by XD.Wang on 2018/4/23.
+ * 节点执行所需上下文
  *
  * @author XD.Wang
  */
