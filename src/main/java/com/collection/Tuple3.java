@@ -1,13 +1,13 @@
 package com.collection;
 
 /**
- * Created by XD.Wang on 2017/7/11.
  * 三元组
  *
  * @param <A> 第一个元素
  * @param <B> 第二个元素
  * @param <C> 第三个元素
  * @author XD.Wang
+ * @date 2017/7/11.
  */
 public class Tuple3<A, B, C> {
 

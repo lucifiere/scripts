@@ -1,10 +1,10 @@
 package com.exceptions;
 
 /**
- * Created by XD.Wang on 2017/5/31.
  * 自定义异常基类
  *
  * @author XD.Wang
+ * @date 2017/5/31.
  */
 public abstract class BaseException extends RuntimeException {
 
@@ -20,11 +20,13 @@ public abstract class BaseException extends RuntimeException {
     private ErrorCode code;
 
     public BaseException(String msg, ErrorCode code) {
+        assert code != null;
         this.code = code;
         this.msg = msg;
     }
 
     public BaseException(ErrorCode code) {
+        assert code != null;
         this.code = code;
         this.msg = code.getDesc();
     }

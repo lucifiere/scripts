@@ -6,10 +6,10 @@ import com.google.common.base.Splitter;
 import java.util.List;
 
 /**
- * Created by XD.Wang on 2018/1/31.
  * 常用字符串工具类
  *
  * @author XD.Wang
+ * @date 2018/1/31.
  */
 final public class StringUtils {
 

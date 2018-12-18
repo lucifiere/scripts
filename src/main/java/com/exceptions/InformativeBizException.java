@@ -1,10 +1,10 @@
 package com.exceptions;
 
 /**
- * Created by XD.Wang on 2017/5/31.
  * 业务异常（携带额外信息）
  *
  * @author XD.Wang
+ * @date 2017/5/31.
  */
 public class InformativeBizException extends BaseException {
 

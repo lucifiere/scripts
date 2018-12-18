@@ -1,7 +1,6 @@
 package com.collection;
 
 /**
- * Created by XD.Wang on 2017/7/11.
  * 四元组
  *
  * @param <A> 第一个元素
@@ -9,6 +8,7 @@ package com.collection;
  * @param <C> 第三个元素
  * @param <D> 第四个元素
  * @author XD.Wang
+ * @date 2017/7/11.
  */
 public class Tuple4<A, B, C, D> {
 

@@ -1,13 +1,15 @@
 package com.collection;
 
+import com.google.common.collect.Lists;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by XD.Wang on 2017/3/21.
  * 列表工具类
  *
  * @author XD.Wang
+ * @date 2017/3/21.
  */
 final public class ListUtils {
 
@@ -47,6 +49,22 @@ final public class ListUtils {
             listArr.add(sub);
         }
         return listArr;
+    }
+
+    /**
+     * 创建一个大小确定，同一个obj的列表
+     *
+     * @param size 容量
+     * @param obj  对象
+     * @param <T>  T
+     * @return 同质列表
+     */
+    public static <T> List<T> generateHomogeneityList(int size, T obj) {
+        List<T> result = Lists.newArrayListWithCapacity(size);
+        for (int i = 0; i < size; ++i) {
+            result.add(obj);
+        }
+        return result;
     }
 
 }

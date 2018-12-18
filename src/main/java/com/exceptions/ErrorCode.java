@@ -1,10 +1,10 @@
 package com.exceptions;
 
 /**
- * Created by XD.Wang on 2017/5/31.
  * 错误码
  *
  * @author XD.Wang
+ * @date 2017/5/31.
  */
 public enum ErrorCode {
 

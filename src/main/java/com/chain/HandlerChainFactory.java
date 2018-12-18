@@ -5,10 +5,10 @@ import com.google.common.collect.Lists;
 import java.util.List;
 
 /**
- * Created by XD.Wang on 2018/4/23.
  * 链表管理
  *
  * @author XD.Wang
+ * @date 2018/4/23.
  */
 public class HandlerChainFactory {
 
