@@ -21,9 +21,9 @@ import java.util.concurrent.TimeUnit;
  * @author XD.Wang
  * @date 2018/11/02.
  */
-public class LRUMapCache implements Cache {
+public class NativeMapCache implements Cache {
 
-    private static final Logger log = LoggerFactory.getLogger(LRUMapCache.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(NativeMapCache.class);
 
     private static final Object NULL_HOLDER = new NullHolder();
 

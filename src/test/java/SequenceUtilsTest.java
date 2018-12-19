@@ -5,7 +5,7 @@ public class SequenceUtilsTest {
 
     @Test
     public void testGetSerialNum() {
-        System.out.println(SequenceUtils.getRandomNum());
+        System.out.println();
     }
 
 }
