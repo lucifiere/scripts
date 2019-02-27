@@ -67,4 +67,8 @@ final public class StringUtils {
         return str;
     }
 
+    private String formatFixedNumber(int number) {
+        return String.format("%05d", number);
+    }
+
 }
