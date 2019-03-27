@@ -37,17 +37,17 @@ public class NativeMapCache implements Cache {
     /**
      * Cache的名称
      */
-    String name = "";
+    private String name = "";
 
     /**
      * Cache初始容量
      */
-    int initCapacity = 100;
+    private int initCapacity = 100;
 
     /**
      * Cache最大容量
      */
-    long maxCapacity = 1000;
+    private long maxCapacity = 1000;
 
     /**
      * 本地cache的超时时间,默认不超时
@@ -201,7 +201,7 @@ public class NativeMapCache implements Cache {
     private static class NullHolder implements Serializable {
         @Override
         public boolean equals(Object obj) {
-            return (obj != null && obj instanceof NullHolder);
+            return (obj instanceof NullHolder);
         }
     }
 
