@@ -5,7 +5,8 @@ import com.google.common.collect.Range;
 /**
  * 区间
  *
- * @author user
+ * @author XD.Wang
+ * @date 2017/2/23.
  */
 public class Interval<T extends Comparable> {
 
