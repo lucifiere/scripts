@@ -26,6 +26,7 @@ public class ChainExecFailedException extends RuntimeException {
     private Object data;
 
     public ChainExecFailedException(String msg, String code, Object data) {
+        super(msg);
         this.msg = msg;
         this.code = code;
         this.data = data;

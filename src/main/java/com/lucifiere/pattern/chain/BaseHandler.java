@@ -1,5 +1,8 @@
 package com.lucifiere.pattern.chain;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 责任链节点
  *
@@ -7,6 +10,8 @@ package com.lucifiere.pattern.chain;
  * @date 2018/4/23.
  */
 public abstract class BaseHandler {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(BaseHandler.class);
 
     public enum FailedHandleStrategy {
         /**
@@ -67,8 +72,10 @@ public abstract class BaseHandler {
     public void execute(HandlerRequest req, HandlerResponse resp) {
         boolean isSuccess = false;
         try {
+            reqValidCheck(req);
             isSuccess = doBizLogic(req, resp);
         } catch (ChainExecFailedException e) {
+            LOGGER.warn("业务校验未通过：" + e.getMessage());
             if (failedHandleStrategy == FailedHandleStrategy.THROW_EXCEPTION) {
                 throw e;
             }
@@ -87,5 +94,12 @@ public abstract class BaseHandler {
      * @return 是否执行成功
      */
     protected abstract boolean doBizLogic(HandlerRequest req, HandlerResponse resp);
+
+    /**
+     * 入参校验
+     *
+     * @param req 入参
+     */
+    protected abstract void reqValidCheck(HandlerRequest req);
 
 }
