@@ -14,6 +14,9 @@ public class HandlerChainFactory {
 
     private static List<BaseHandler> demo = Lists.newArrayList();
 
+    private static List<BaseHandler> ticketAct = Lists.newArrayList(
+    );
+
     private static BaseHandler chaining(List<BaseHandler> handlers) {
         for (int i = 0; i < handlers.size() - 1; i++) {
             handlers.get(i).nextIs(handlers.get(i + 1));

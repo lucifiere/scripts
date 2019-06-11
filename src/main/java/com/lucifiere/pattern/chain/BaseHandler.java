@@ -1,8 +1,5 @@
 package com.lucifiere.pattern.chain;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 /**
  * 责任链节点
  *
@@ -11,29 +8,10 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class BaseHandler {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(BaseHandler.class);
-
-    public enum FailedHandleStrategy {
-        /**
-         * 终止并抛出异常
-         */
-        THROW_EXCEPTION,
-        /**
-         * 忽略并继续进行
-         */
-        IGNORE,
-        /**
-         * 终止并跳出
-         */
-        BREAK
-    }
-
     /**
      * 下游节点
      */
     protected BaseHandler nextHandler;
-
-    protected FailedHandleStrategy failedHandleStrategy;
 
     /**
      * 判断是否有下游节点
@@ -42,14 +20,6 @@ public abstract class BaseHandler {
      */
     protected boolean hasNext() {
         return nextHandler != null;
-    }
-
-    public BaseHandler(FailedHandleStrategy failedHandleStrategy) {
-        this.failedHandleStrategy = failedHandleStrategy;
-    }
-
-    public BaseHandler() {
-        this.failedHandleStrategy = FailedHandleStrategy.THROW_EXCEPTION;
     }
 
     /**
@@ -64,42 +34,19 @@ public abstract class BaseHandler {
     }
 
     /**
-     * 执行节点逻辑
-     *
-     * @param req  节点逻辑必要上下文
-     * @param resp 执行结果
-     */
-    public void execute(HandlerRequest req, HandlerResponse resp) {
-        boolean isSuccess = false;
-        try {
-            reqValidCheck(req);
-            isSuccess = doBizLogic(req, resp);
-        } catch (ChainExecFailedException e) {
-            LOGGER.warn("业务校验未通过：" + e.getMessage());
-            if (failedHandleStrategy == FailedHandleStrategy.THROW_EXCEPTION) {
-                throw e;
-            }
-        }
-        boolean toNextNode = (isSuccess || failedHandleStrategy == FailedHandleStrategy.IGNORE) && hasNext();
-        if (toNextNode) {
-            nextHandler.execute(req, resp);
-        }
-    }
-
-    /**
      * 自定义业务逻辑
      *
      * @param req  节点逻辑必要上下文
      * @param resp 执行结果
      * @return 是否执行成功
      */
-    protected abstract boolean doBizLogic(HandlerRequest req, HandlerResponse resp);
+    protected abstract boolean doBizLogic(BaseHandlerRequest req, BaseHandlerResponse resp);
 
     /**
-     * 入参校验
+     * 业务逻辑入参校验
      *
-     * @param req 入参
+     * @param req 业务逻辑入参
      */
-    protected abstract void reqValidCheck(HandlerRequest req);
+    protected abstract void reqValidCheck(BaseHandlerRequest req);
 
 }
