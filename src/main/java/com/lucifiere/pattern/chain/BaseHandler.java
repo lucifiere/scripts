@@ -40,13 +40,13 @@ public abstract class BaseHandler {
      * @param resp 执行结果
      * @return 是否执行成功
      */
-    protected abstract boolean doBizLogic(BaseHandlerRequest req, BaseHandlerResponse resp);
+    protected abstract boolean doBizLogic(HandlerRequest req, HandlerResponse resp);
 
     /**
      * 业务逻辑入参校验
      *
      * @param req 业务逻辑入参
      */
-    protected abstract void reqValidCheck(BaseHandlerRequest req);
+    protected abstract void reqValidCheck(HandlerRequest req);
 
 }

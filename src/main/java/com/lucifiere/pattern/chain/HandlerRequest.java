@@ -6,5 +6,5 @@ package com.lucifiere.pattern.chain;
  * @author XD.Wang
  * @date 2018/4/23.
  */
-public abstract class BaseHandlerRequest {
+public class HandlerRequest {
 }

@@ -58,7 +58,7 @@ public class HandlerExecutor {
      * @param req  节点逻辑必要上下文
      * @param resp 执行结果
      */
-    public void execute(BaseHandlerRequest req, BaseHandlerResponse resp) {
+    public void execute(HandlerRequest req, HandlerResponse resp) {
         boolean proceed = true;
         while (proceed) {
             proceed = execHandler(req, resp);
@@ -72,7 +72,7 @@ public class HandlerExecutor {
      * @param resp 执行结果
      * @return 是否继续执行
      */
-    private boolean execHandler(BaseHandlerRequest req, BaseHandlerResponse resp) {
+    private boolean execHandler(HandlerRequest req, HandlerResponse resp) {
         boolean isSuccess = false;
         try {
             curHandler.reqValidCheck(req);
