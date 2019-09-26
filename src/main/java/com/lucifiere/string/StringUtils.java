@@ -76,7 +76,7 @@ final public class StringUtils {
      * @param number 数字
      * @return 补齐后的定长数字
      */
-    private static String formatFixedNumber(int len, int number) {
+    public static String formatFixedNumber(int len, int number) {
         String pattern = "%0" + len + "d";
         return String.format(pattern, number);
     }
