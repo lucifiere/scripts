@@ -13,7 +13,7 @@ import com.lucifiere.entity.SimpleNode;
 public class NodeDeleter {
 
     public static void main(String[] args) {
-        SimpleNode head = MockUtils.mockSimpleLinkList();
+        SimpleNode head = MockUtils.mockSimpleLinkList(1, 2, 3, 4);
         traversing(null, head, 2);
     }
 

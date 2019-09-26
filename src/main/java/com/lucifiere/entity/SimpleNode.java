@@ -1,5 +1,10 @@
 package com.lucifiere.entity;
 
+/**
+ * 单向节点
+ *
+ * @author user
+ */
 public class SimpleNode {
 
     public int val;
@@ -12,7 +17,11 @@ public class SimpleNode {
 
     @Override
     public String toString() {
-        return val + ">>" + next.val;
+        if (next != null) {
+            return val + ">>" + next.val;
+        } else {
+            return val + "";
+        }
     }
 
 }

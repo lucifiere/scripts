@@ -2,17 +2,22 @@ package com.lucifiere.algorithm;
 
 import com.lucifiere.entity.SimpleNode;
 
+/**
+ * MOCK数据
+ *
+ * @author user
+ */
 public class MockUtils {
 
-    public static SimpleNode mockSimpleLinkList() {
-        SimpleNode node1 = new SimpleNode(1);
-        SimpleNode node2 = new SimpleNode(2);
-        SimpleNode node3 = new SimpleNode(3);
-        SimpleNode node4 = new SimpleNode(4);
-        node1.next = node2;
-        node2.next = node3;
-        node3.next = node4;
-        return node1;
+    public static SimpleNode mockSimpleLinkList(Integer... mockData) {
+        SimpleNode head = new SimpleNode(mockData[0]);
+        SimpleNode cur = head;
+        for (int i = 1; i < mockData.length; i++) {
+            SimpleNode newOne = new SimpleNode(mockData[i]);
+            cur.next = newOne;
+            cur = newOne;
+        }
+        return head;
     }
 
 }

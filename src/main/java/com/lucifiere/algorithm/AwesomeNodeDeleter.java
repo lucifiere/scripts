@@ -13,13 +13,13 @@ import com.lucifiere.entity.SimpleNode;
 public class AwesomeNodeDeleter {
 
     public static void main(String[] args) {
-        SimpleNode head = MockUtils.mockSimpleLinkList();
+        SimpleNode head = MockUtils.mockSimpleLinkList(4, 5, 1, 9);
         deleteNode(head.next.next);
     }
 
     private static void deleteNode(SimpleNode toBeDeleted) {
+        toBeDeleted.val = toBeDeleted.next.val;
         toBeDeleted.next = toBeDeleted.next.next;
-        toBeDeleted.next.val = toBeDeleted.next.next.val;
     }
 
 }
