@@ -1,0 +1,8 @@
+<root>
+    <message ID="1001" A="a" B="b">
+        <ID A="ss">sd</ID>
+    </message>
+    <debug ID="1001" A="a" B="b">
+        <ID A="1ss">s11d</ID>
+    </debug>
+</root>

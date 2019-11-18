@@ -1,5 +1,8 @@
 package com.lucifiere.algorithm;
 
+import com.google.common.collect.Lists;
+
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +15,11 @@ import java.util.List;
  * @date 2016/12/23.
  */
 public class Permutation {
+
+    public static void main(String[] args) {
+        List<Integer> ll = Lists.newArrayList(1, 2, 3, 4);
+        System.out.println(permute(ll));
+    }
 
     public static List<List<Integer>> permute(List<Integer> nums) {
         List<List<Integer>> res = new ArrayList<>();

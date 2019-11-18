@@ -3,6 +3,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.RandomUtils;
 import org.junit.Test;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +25,12 @@ public class PermutationTest {
             list.add(obj);
         }
         System.out.println("S");
+    }
+
+    public static void main(String[] args) {
+        BigDecimal b = new BigDecimal(100.2321312312312);
+        BigDecimal a = new BigDecimal(8);
+        System.out.println(b.remainder(a).setScale(0, BigDecimal.ROUND_DOWN));
     }
 
 }
