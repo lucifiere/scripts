@@ -3,11 +3,10 @@ package com.lucifiere.collection;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.google.common.base.Predicate;
-import com.google.common.base.Predicates;
-import org.apache.commons.collections4.CollectionUtils;
+import com.lucifiere.aop.GeneralInterceptor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -78,16 +77,19 @@ public class JSONUtils {
         }
         List<Wrapper> l1 = j1.stream().map(Wrapper::new).collect(Collectors.toList());
         List<Wrapper> l2 = j2.stream().map(Wrapper::new).collect(Collectors.toList());
-        return l1.containsAll(l2);
+        boolean res = l1.containsAll(l2);
+        if (!res) {
+            System.out.println(String.format("比较失败！expected=%s;actual=%s", JSON.toJSONString(l1), JSON.toJSONString(l2)));
+        }
+        return res;
     }
 
     public static void main(String[] args) {
-        String s1 = "[{\"id\":6401,\"name\":\"深圳市_三十三间堂（天利店）\",\"contractId\":null,\"contractName\":null,\"contractNumber\":null,\"details\":[{\"partner\":0,\"due\":-545.33,\"realPayed\":10.0,\"bizCost\":0.0,\"service\":0.0,\"refund\":555.33,\"cnt\":1,\"savingCardAmount\":0.0}]}]";
-        String s2 = "[{\"id\":6401,\"details\":[{\"partner\":0,\"due\":-545.33,\"realPayed\":10,\"bizCost\":0,\"service\":0,\"refund\":555.33,\"cnt\":1,\"savingCardAmount\":0}]}]";
+        String s1 = "[{\"code\":\"885834865\",\"bizType\":\"未消费退2321款结算\",\"addTime\":1590940800,\"poiName\":\"深圳市_三十三间堂（天利店）\",\"dealId\":401263904,\"contractNumber\":\"DCKJ05922002004801\",\"dealName\":\"20200316_嘉华大酒店季花日本料理餐厅[1.2元][401263904]\",\"partner\":0,\"contractId\":\"b84f72e8-c9f3-4352-8cdb-bd9a8a4b6a3a\",\"useTime\":0,\"contractName\":\"分门店付款-钱包(团购)\",\"poiId\":6401,\"refund\":554.22},{\"code\":\"953523523\",\"bizType\":\"已消费退款结算\",\"addTime\":1590940800,\"poiName\":\"深圳市_三十三间堂（天利店）\",\"dealId\":401263904,\"contractNumber\":\"DCKJ05922002004801\",\"dealName\":\"20200316_嘉华大酒店季花日本料理餐厅[1.2元][401263904]\",\"partner\":0,\"contractId\":\"b84f72e8-c9f3-4352-8cdb-bd9a8a4b6a3a\",\"useTime\":1590389528,\"contractName\":\"分门店付款-钱包(团购)\",\"poiId\":6401,\"refund\":1.11}]";
+        String s2 = "[{\"code\":\"885834865\",\"bizType\":\"未消费退款结算\",\"addTime\":1590940800,\"poiName\":\"深圳市_三十三间堂（天利店）\",\"dealId\":401263904,\"contractNumber\":\"DCKJ05922002004801\",\"dealName\":\"20200316_嘉华大酒店季花日本料理餐厅[1.2元][401263904]\",\"partner\":0,\"contractId\":\"b84f72e8-c9f3-4352-8cdb-bd9a8a4b6a3a\",\"useTime\":0,\"contractName\":\"分门店付款-钱包(团购)\",\"poiId\":6401,\"refund\":554.22},{\"code\":\"953523523\",\"bizType\":\"已消费退款结算\",\"addTime\":1590940800,\"poiName\":\"深圳市_三十三间堂（天利店）\",\"dealId\":401263904,\"contractNumber\":\"DCKJ05922002004801\",\"dealName\":\"20200316_嘉华大酒店季花日本料理餐厅[1.2元][401263904]\",\"partner\":0,\"contractId\":\"b84f72e8-c9f3-4352-8cdb-bd9a8a4b6a3a\",\"useTime\":1590389528,\"contractName\":\"分门店付款-钱包(团购)\",\"poiId\":6401,\"refund\":1.11}]";
         JSONArray j1 = JSON.parseArray(s1);
         JSONArray j2 = JSON.parseArray(s2);
-        System.out.println(isJsonArrayContain(j1, j2));
-        System.out.println(isJsonArrayContain0(j1, j2, "id"));
+        System.out.println(isJsonArrayContain0(j1, j2, "bizType", "refund"));
     }
 
 }
