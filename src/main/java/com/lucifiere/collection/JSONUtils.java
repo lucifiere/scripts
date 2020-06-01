@@ -79,7 +79,7 @@ public class JSONUtils {
         List<Wrapper> l2 = j2.stream().map(Wrapper::new).collect(Collectors.toList());
         boolean res = l1.containsAll(l2);
         if (!res) {
-            System.out.println(String.format("比较失败！expected=%s；actual=%s", printFields(j1, fields), printFields(j2, fields)));
+            System.out.println(String.format("比较失败！expected={%s}；actual={%s}", printFields(j1, fields), printFields(j2, fields)));
         }
         return res;
     }
