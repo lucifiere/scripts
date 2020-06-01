@@ -3,12 +3,12 @@ package com.lucifiere.collection;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.lucifiere.aop.GeneralInterceptor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.google.common.base.Joiner;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class JSONUtils {
@@ -79,9 +79,16 @@ public class JSONUtils {
         List<Wrapper> l2 = j2.stream().map(Wrapper::new).collect(Collectors.toList());
         boolean res = l1.containsAll(l2);
         if (!res) {
-            System.out.println(String.format("比较失败！expected=%s;actual=%s", JSON.toJSONString(l1), JSON.toJSONString(l2)));
+            System.out.println(String.format("比较失败！expected=%s；actual=%s", printFields(j1, fields), printFields(j2, fields)));
         }
         return res;
+    }
+
+    private static String printFields(JSONArray j, String... fields) {
+        return j.stream().map(o -> {
+            List printFields = Arrays.stream(fields).map(((JSONObject) o)::get).collect(Collectors.toList());
+            return Joiner.on(",").join(printFields);
+        }).collect(Collectors.joining());
     }
 
     public static void main(String[] args) {
