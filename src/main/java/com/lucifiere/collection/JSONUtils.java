@@ -87,7 +87,7 @@ public class JSONUtils {
     private static String printFields(JSONArray j, String... fields) {
         return j.stream().map(o -> {
             List printFields = Arrays.stream(fields).map(f -> f + "->" + ((JSONObject) o).get(f)).collect(Collectors.toList());
-            return Joiner.on(",").join(printFields);
+            return Joiner.on(",").join(printFields) + " | ";
         }).collect(Collectors.joining());
     }
 
